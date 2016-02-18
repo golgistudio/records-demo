@@ -4,7 +4,7 @@
         "dictionaries": ["jsdoc"]
     },
     "source": {
-        "include": ["./src", "package.json", "README.md", "server"],
+        "include": ["./src/client", "package.json", "README.md", "./src/server"],
         "includePattern": ".js$",
         "excludePattern": "(node_modules/|docs|dist/|coverage/|tests)"
     },

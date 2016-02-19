@@ -11,7 +11,7 @@ const {__DEV__, __PROD__, __TEST__} = config.globals
 
 debug('Create configuration.')
 const webpackConfig = {
-  name: 'src/client',
+  name: 'src/recordApp/client',
   target: 'web',
   devtool: config.compiler_devtool,
   resolve: {
@@ -147,7 +147,7 @@ const cssLoader = !config.compiler_css_modules
 
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  include: /src\/client/,
+  include: /src\/recordApp\/client/,
   loaders: [
     'style',
     cssLoader,
@@ -158,7 +158,7 @@ webpackConfig.module.loaders.push({
 
 webpackConfig.module.loaders.push({
   test: /\.css$/,
-  include: /src\/client/,
+  include: /src\/recordApp\/client/,
   loaders: [
     'style',
     cssLoader,
@@ -169,7 +169,7 @@ webpackConfig.module.loaders.push({
 // Don't treat global SCSS as modules
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  exclude: /src\/client/,
+  exclude: /src\/recordApp\/client/,
   loaders: [
     'style',
     'css?sourceMap',
@@ -181,7 +181,7 @@ webpackConfig.module.loaders.push({
 // Don't treat global, third-party CSS as modules
 webpackConfig.module.loaders.push({
   test: /\.css$/,
-  exclude: /src\/client/,
+  exclude: /src\/recordApp\/client/,
   loaders: [
     'style',
     'css?sourceMap',

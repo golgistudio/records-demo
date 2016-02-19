@@ -4,9 +4,9 @@
         "dictionaries": ["jsdoc"]
     },
     "source": {
-        "include": ["./src/client", "package.json", "README.md", "./src/server"],
+        "include": ["./src/recordApp", "package.json", "README.md"],
         "includePattern": ".js$",
-        "excludePattern": "(node_modules/|docs|dist/|coverage/|tests)"
+        "excludePattern": "(node_modules|docs|dist|coverage|tests|middleware|lib|data)"
     },
     "plugins": [
         "plugins/markdown"
@@ -19,7 +19,6 @@
         "destination": "./quality/docs/",
         "encoding": "utf8",
         "private": true,
-        "recurse": true,
-        "template": "./node_modules/ink-docstrap/template"
+        "recurse": true
     }
 }

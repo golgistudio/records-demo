@@ -21,7 +21,7 @@
     "deploy": "better-npm-run deploy",
     "flow:check": "babel-node bin/flow-check",
     "codecov": "cat coverage/*/lcov.info | codecov",
-    "docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+    "docs": "node_modules/.bin/jsdoc --configure ./.jsdoc.json --verbose"
   },
   "betterScripts": {
     "compile": {
@@ -65,8 +65,10 @@
   "author": "Laurie Reynolds <lauriesreynolds@gmail.com> (http://www.golgistudio.com)",
   "license": "MIT",
   "dependencies": {
+    "async": "^1.5.2",
     "better-npm-run": "0.0.5",
     "co-request": "^1.0.0",
+    "command-line-args": "^2.1.6",
     "debug": "^2.2.0",
     "history": "^2.0.0",
     "iconv-lite": "^0.4.13",
@@ -121,7 +123,7 @@
     "html-webpack-plugin": "^2.7.1",
     "imports-loader": "^0.6.5",
     "isparta-loader": "^2.0.0",
-    "jsdoc": "^3.4.0",
+    "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
     "json-loader": "^0.5.4",
     "karma": "^0.13.21",
     "karma-coverage": "^0.5.0",

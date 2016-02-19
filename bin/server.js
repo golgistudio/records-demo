@@ -1,5 +1,5 @@
 import config from '../config'
-import server from '../src/server/main'
+import server from '../src/recordApp/server/main'
 import _debug from 'debug'
 
 const debug = _debug('app:bin:server')

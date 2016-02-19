@@ -9,3 +9,15 @@
 
 # records-demo
 A simple demo of calculating costs and distribution for records
+
+
+
+## References that may need to be updated if you move source code
+bin/server.js
+build/wepback.recordProperties.js
+config/_base.js
+.eslintignore
+server/main.js
+server/middleware/webpack-dev.js
+tests/eslintrc
+

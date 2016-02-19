@@ -11,10 +11,10 @@ const config = {
   // Project Structure
   // ----------------------------------
   path_base  : path.resolve(__dirname, '../'),
-  dir_client : 'src/client',
+  dir_client : 'src/recordApp/client',
   dir_dist   : 'dist',
-  dir_server : 'src/server',
-  dir_test   : 'src/tests',
+  dir_server : 'src/recordApp/server',
+  dir_test   : 'src/recordApp/tests',
 
   // ----------------------------------
   // Server Configuration

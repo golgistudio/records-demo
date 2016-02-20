@@ -72,7 +72,6 @@ export function calculateDistributions (recordID, orderID) {
     var cummulativeDistributions = []
 
     for (var key in orderCollection) {
-      var totalFee = 0
       var orderObj = orderCollection[key]
       var orderDistributions = []
 

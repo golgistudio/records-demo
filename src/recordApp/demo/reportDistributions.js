@@ -137,9 +137,9 @@ function reportDistributions (orderID) {
       console.log('                          Total .....  $' + orderObj.fee)
       console.log()
       for (var orderKey in orderObj.distributions) {
-        var stringVal = orderKey
+        stringVal = orderKey
         padding = 45 - stringVal.length
-        for (var pp = 0; pp < padding; pp++) {
+        for (pp = 0; pp < padding; pp++) {
           stringVal = stringVal + '.'
         }
         stringVal = stringVal + ' $' + orderObj.distributions[orderKey]
@@ -154,9 +154,9 @@ function reportDistributions (orderID) {
   console.log()
   if (distributions != null) {
     for (var itemKey in distributions) {
-      var stringVal = '   ' + itemKey
+      stringVal = '   ' + itemKey
       padding = 45 - stringVal.length
-      for (var pp = 0; pp < padding; pp++) {
+      for (pp = 0; pp < padding; pp++) {
         stringVal = stringVal + '.'
       }
       stringVal = stringVal + ' $' + distributions[itemKey]

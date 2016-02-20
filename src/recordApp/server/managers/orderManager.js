@@ -25,18 +25,10 @@ export var orderManager = (function () {
 
       for (var key in orderCollection) {
         var orderObj = orderCollection[key]
-        //console.log('date: ' + orderObj.date)
-        //console.log('number: ' + orderObj.number)
 
         var orderObjItemsLength = orderObj.items.length
         for (var jjj = 0; jjj < orderObjItemsLength; jjj++) {
-          var orderItemObj = orderObj.items[jjj]
-          //console.log('type: ' + orderItemObj.type)
-          //console.log('pages: ' + orderItemObj.pages)
-
-          if (orderItemObj.pages > 1) {
-            //console.log('~~~~~~~~~~~~~ multiple pages')
-          }
+          // var orderItemObj = orderObj.items[jjj]
         }
         return isValid
       }

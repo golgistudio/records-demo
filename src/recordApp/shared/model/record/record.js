@@ -1,4 +1,9 @@
 /**
+ * @file
+ *
+ * @copyright Laurie Reynolds 2016
+ */
+/**
  *
  */
 /* eslint-disable no-unused-vars */

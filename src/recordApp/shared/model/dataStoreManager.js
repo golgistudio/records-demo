@@ -1,9 +1,11 @@
 /**
  * @file
+ *
+ * @copyright Laurie Reynolds 2016
  */
 
 /**
- *
+ * @exports
  * @type {{getInstance}}
  */
 export var dataStoreManager = (function () {

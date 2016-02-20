@@ -16,8 +16,8 @@ import {dataStoreManager} from '../shared/model/dataStoreManager'
 
 /**
  * @function
- * @returns {*} input options
  * @description Process the command line parameters
+ * @returns {*} input options
  */
 function getInputParameters () {
   const optionDefinitions = [
@@ -66,7 +66,8 @@ function getInputParameters () {
 }
 
 /**
- *
+ * @function
+ * @description Read in the orders file and load it into memory
  * @param orderFileName
  * @param callback
  */
@@ -78,39 +79,65 @@ function initializeOrders (orderFileName, callback) {
       }
 
       var order = JSON.parse(data)
-      // console.log(order)
       var orderID = orderManager.getInstance().defineOrder(order)
 
       callback(null, orderID)
     })
 }
 
+/**
+ * @function
+ * @description Report the fees
+ * @param orderID
+ */
 function reportFees (orderID) {
   var _dataStoreManager = dataStoreManager.getInstance()
   var orderCollection = _dataStoreManager.getData(orderID)
+
+  console.log('--------------------------------------------')
+  console.log('                ORDER FEES                  ')
+  console.log('--------------------------------------------')
 
   if (orderCollection != null) {
     var orderCollectionLength = orderCollection.length
 
     for (var iii = 0; iii < orderCollectionLength; iii++) {
       var orderObj = orderCollection[iii]
-      console.log(orderObj.date + '  -  ' + orderObj.number + ':   $' + orderObj.fee)
+      console.log(orderObj.date + '  -  ' + orderObj.number)
       var orderObjItemsLength = orderObj.items.length
+      console.log()
       for (var jjj = 0; jjj < orderObjItemsLength; jjj++) {
         var orderItemObj = orderObj.items[jjj]
 
-        console.log(orderItemObj.type + ' (' + orderItemObj.pages + ') : ' + orderItemObj.fee)
+        var recordString = jjj+1 + '. ' + orderItemObj.type + ' (' + orderItemObj.pages + ') '
+        var padding = 38 - recordString.length
+        for (var ppp = 0; ppp < padding; ppp++) {
+          recordString = recordString + '.'
+        }
+
+        recordString = recordString + ' $' + orderItemObj.fee
+
+        console.log(recordString)
       }
+      console.log(' ')
+      console.log('                          Total .....  $' + orderObj.fee)
+      console.log('--------------------------------------------')
     }
   }
 }
 
+/**
+ * @function
+ * @description Main entry point to the application
+ */
 function main () {
   try {
     // Process the input parameters
     // JSON file of orders
     var inputOptions = getInputParameters()
 
+    // Use async to read in the records and orders and calculate the fees
+    // Report the fees
     async.series(
       [
         function records (callback) {
@@ -122,10 +149,25 @@ function main () {
       ],
       function callback (err, results) {
         if (err) {
-          throw err
+          console.log(err)
+        } else {
+          var recordID = results[0]
+          var orderID = results[1]
+          if (recordID !== -1 && orderID !== -1) {
+            calculateFees(recordID, orderID)
+            reportFees(orderID)
+          } else {
+            if (recordID === -1) {
+              if (orderID === -1) {
+                console.log('Invalid order and record definition')
+              } else {
+                console.log('Invalid record definition')
+              }
+            } else if (orderID === -1) {
+              console.log('Invalid order')
+            }
+          }
         }
-        calculateFees(results[0], results[1])
-        reportFees(results[1])
       })
   } catch (err) {
     console.log(err)

@@ -1,5 +1,7 @@
-/** *
+/**
+ * @file
  *
+ * @copyright Laurie Reynolds 2016
  */
 
 /**

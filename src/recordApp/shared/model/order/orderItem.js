@@ -1,13 +1,17 @@
 /**
+ * @file
  *
+ * @copyright Laurie Reynolds 2016
  */
+
 /* eslint-disable no-unused-vars */
 /**
  *
  */
 export function OrderItem () {
   var type
-  var pages
+  var page
   var fee
+  var distributions
 }
 /* eslint-enable no-unused-vars */

@@ -1,5 +1,7 @@
-/** *
+/**
+ * @file
  *
+ * @copyright Laurie Reynolds 2016
  */
 
 import {Order} from '../../shared/model/order/order'
@@ -19,24 +21,21 @@ export var orderManager = (function () {
 
   function init () {
     function validateOrder (orderCollection) {
-      console.log('=========== ValidateOrder')
-
       var isValid = true
 
-      var orderCollectionLength = orderCollection.length
-      for (var iii = 0; iii < orderCollectionLength; iii++) {
-        var orderObj = orderCollection[iii]
-        console.log('date: ' + orderObj.date)
-        console.log('number: ' + orderObj.number)
+      for (var key in orderCollection) {
+        var orderObj = orderCollection[key]
+        //console.log('date: ' + orderObj.date)
+        //console.log('number: ' + orderObj.number)
 
         var orderObjItemsLength = orderObj.items.length
         for (var jjj = 0; jjj < orderObjItemsLength; jjj++) {
           var orderItemObj = orderObj.items[jjj]
-          console.log('type: ' + orderItemObj.type)
-          console.log('pages: ' + orderItemObj.pages)
+          //console.log('type: ' + orderItemObj.type)
+          //console.log('pages: ' + orderItemObj.pages)
 
           if (orderItemObj.pages > 1) {
-            console.log('~~~~~~~~~~~~~ multiple pages')
+            //console.log('~~~~~~~~~~~~~ multiple pages')
           }
         }
         return isValid
@@ -52,8 +51,6 @@ export var orderManager = (function () {
           var data = rawData[i]
           var _order = new Order()
 
-          console.log(data.order_date + ', ' + data.order_number)
-
           _order.date = data.order_date
           _order.number = data.order_number
           _order.items = []
@@ -63,7 +60,6 @@ export var orderManager = (function () {
             var item = data.order_items[j]
             var _orderItem = new OrderItem()
 
-            console.log(item.type + ', ' + item.pages)
             _orderItem.type = item.type
             _orderItem.pages = item.pages
 

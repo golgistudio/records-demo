@@ -6,18 +6,41 @@
 [![github-version](https://badge.fury.io/gh/golgistudio%2Frecords-demo.svg)](http://badge.fury.io)
 
 
+Simple Demo of Records Calculations
+====================================
 
-# records-demo
-A simple demo of calculating costs and distribution for records
+* [JSDoc](http://golgistudio.github.io/records-demo/quality/docs/records-demo/0.0.1/)
+* [Coverage Report](http://golgistudio.github.io/records-demo/records-demo/quality/coverage/PhantomJS%202.1.1%20(Linux%200.0.0)/lcov-report/index.html)
+
+<img src="https://raw.githubusercontent.com/golgistudio/records-demo/gh-pages/images/recordDemo.png" alt="Records Demo screenshot" width="400">
 
 
+## Table of contents
 
-## References that may need to be updated if you move source code
-bin/server.js
-build/wepback.recordProperties.js
-config/_base.js
-.eslintignore
-server/main.js
-server/middleware/webpack-dev.js
-tests/eslintrc
+  * [Table of contents](#table-of-contents)
+  * [Overview](#overview)
+  * [Getting Started](#getting-started)
+  * [Running the application](#running-the-application)
+  * [Design Notes](#design-notes)
+  * [Known Issues](#known-issues)
+  * [Miscellaneous Notes](#notes)
+
+
+## Overview
+
+## Getting Started
+
+## Running the Application
+
+## Design Notes
+
+## Miscellaneous Notes
+References that need to be updated if you move source code
+* bin/server.js
+* build/wepback.recordProperties.js
+* config/_base.js
+* .eslintignore
+* server/main.js
+* server/middleware/webpack-dev.js
+* tests/eslintrc
 

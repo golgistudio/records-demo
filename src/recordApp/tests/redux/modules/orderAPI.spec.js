@@ -2,7 +2,7 @@ import {
   getServerStatus,
   getOrderData,
   default as counterReducer
-} from 'redux/modules/counter'
+} from 'redux/modules/orderAPI'
 
 describe('(Redux Module) Counter', function () {
   it('expect getServerStatus to equal Not Ready.', function () {

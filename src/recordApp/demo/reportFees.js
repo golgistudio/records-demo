@@ -9,9 +9,9 @@ var commandLineArgs = require('command-line-args')
 var fs = require('fs')
 var async = require('async')
 
-import {orderManager} from '../server/managers/orderManager'
-import {initializeRecords} from '../server/bootstrap/initializeRecords'
-import {calculateFees} from '../server/calculators/calculateFees'
+import {orderManager} from '../appServer/managers/orderManager'
+import {initializeRecords} from '../appServer/bootstrap/initializeRecords'
+import {calculateFees} from '../appServer/calculators/calculateFees'
 import {dataStoreManager} from '../shared/model/dataStoreManager'
 
 /**

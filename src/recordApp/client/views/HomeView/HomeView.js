@@ -1,65 +1,121 @@
-/* @flow */
-import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { increment, doubleAsync } from '../../redux/modules/counter'
-import DuckImage from './Duck.jpg'
+var React = require('react')
+
+import {orders, fees, distributions} from '../../redux/modules/orderAPI'
+import {getServerStatus, getOrderData, status} from '../../redux/modules/orderAPI'
+import {orderList} from '../../redux/modules/orderData'
+import Banner from './agencybanner.jpg'
 import classes from './HomeView.scss'
+import '../../styles/core.scss'
 
-// We can use Flow (http://flowtype.org/) to type our component's props
-// and state. For convenience we've included both regular propTypes and
-// Flow types, but if you want to try just using Flow you'll want to
-// disable the eslint rule `react/prop-types`.
-// NOTE: You can run `npm run flow:check` to check for any errors in your
-// code, or `npm i -g flow-bin` to have access to the binary globally.
-// Sorry Windows users :(.
-type Props = {
-  counter: number,
-  doubleAsync: Function,
-  increment: Function
-};
+var HomeView = React.createClass({
+  getInitialState () {
+    var serverStatus = getServerStatus()
+    var results = ''
+    var resultName = ' '
 
-// We avoid using the `@connect` decorator on the class definition so
-// that we can export the undecorated component for testing.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
-export class HomeView extends React.Component<void, Props, void> {
-  static propTypes = {
-    counter: PropTypes.number.isRequired,
-    doubleAsync: PropTypes.func.isRequired,
-    increment: PropTypes.func.isRequired
-  };
+    return {
+      serverStatus: serverStatus,
+      orderData: JSON.stringify(orderList, null, '\t'),
+      results: results,
+      resultName: resultName
+    }
+  },
+
+  setOrders () {
+    var newOrders = JSON.parse(document.getElementById('orderInput').value)
+    orders(newOrders)
+  },
+
+  processFeeResults (results) {
+    this.state.results = results
+    this.state.resultName = 'Fees'
+    this.forceUpdate()
+  },
+
+  getFees () {
+    fees(this.processFeeResults)
+  },
+
+  processStatus (results) {
+    this.state.serverStatus= results
+    this.forceUpdate()
+  },
+
+  getStatus () {
+    status(this.processStatus)
+  },
+
+  processDistributionResults (results) {
+    this.state.results = results
+    this.state.resultName = 'Distributions'
+    this.forceUpdate()
+  },
+
+  getDistributions () {
+    distributions(this.processDistributionResults)
+  },
+
+  orderData () {
+    return getOrderData()
+  },
 
   render () {
+    var statusClass = ' '
+    if (this.state.serverStatus === 'ready') {
+      statusClass += ' btn-success'
+    } else {
+      statusClass += ' btn-danger'
+    }
+
+    statusClass += ' btn'
+
     return (
-      <div className='container text-center'>
+      <div className='container'>
         <div className='row'>
-          <div className='col-xs-2 col-xs-offset-5'>
-            <img className={classes.duck}
-              src={DuckImage}
-              alt='This is a duck, because Redux.' />
+          <img className={classes.banner}
+            src={Banner}
+            alt='Agency Banner.' />
+        </div>
+        <div className='row'>&nbsp;</div>
+        <div className='row'>
+          <div className='col-xs-9 col-md-9'>
+            <button className='btn btn-default' onClick={this.setOrders}>Orders </button>
+                {'  '}
+            <button className='btn btn-default' onClick={this.getFees}>Fees </button>
+                {'  '}
+            <button className='btn btn-default' onClick={this.getDistributions}> Distributions </button>
+          </div>
+          <div className='col-xs-3 col-md-3'>
+            <button className={statusClass} onClick={this.getStatus}>Status : {this.state.serverStatus}</button>
           </div>
         </div>
-        <h1>Welcome to the React Redux Starter Kit</h1>
-        <h2>
-          Sample Counter:
-          {' '}
-          <span className={classes['counter--green']}>{this.props.counter}</span>
-        </h2>
-        <button className='btn btn-default' onClick={this.props.increment}>
-          Increment
-        </button>
-        {' '}
-        <button className='btn btn-default' onClick={this.props.doubleAsync}>
-          Double (Async)
-        </button>
+        <div className='row'>&nbsp;</div>
+        <div className='row'>
+          <div className='col-xs-5 col-md-5 '>
+            <div className='panel panel-default'>
+              <div className='panel-heading'>Orders</div>
+              <div className='panel-body'>
+                <textarea className='orderInputClass' id='orderInput' rows='30' >
+                  {this.state.orderData}
+                </textarea>
+              </div>
+            </div>
+          </div>
+          <div className='col-xs-1 col-md-1'> &nbsp;</div>
+          <div className='col-xs-6 col-md-6'>
+            <div className='panel panel-default'>
+              <div className='panel-heading'>{this.state.resultName}</div>
+              <div className='panel-body'>
+                <textarea className='orderOutputClass' id='orderOutput' rows='30' value={this.state.results} readOnly>
+
+                </textarea>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
-}
-
-const mapStateToProps = (state) => ({
-  counter: state.counter
 })
-export default connect((mapStateToProps), {
-  increment: () => increment(1),
-  doubleAsync
-})(HomeView)
+
+module.exports = HomeView

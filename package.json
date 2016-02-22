@@ -13,6 +13,7 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "start": "better-npm-run start",
+    "startAppServer": "better-npm-run startAppServer",
     "dev": "better-npm-run dev",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",
@@ -50,6 +51,12 @@
         "DEBUG": "app:*"
       }
     },
+    "startAppServer": {
+      "command": "babel-node src/recordApp/appServer/main.js",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
     "test": {
       "command": "babel-node ./node_modules/karma/bin/karma start build/karma.conf",
       "env": {
@@ -66,10 +73,14 @@
   "license": "MIT",
   "dependencies": {
     "async": "^1.5.2",
+    "axios": "^0.9.1",
     "better-npm-run": "0.0.5",
+    "body-parser": "^1.15.0",
+    "classnames": "^2.2.3",
     "co-request": "^1.0.0",
     "command-line-args": "^2.1.6",
     "debug": "^2.2.0",
+    "express": "^4.13.4",
     "history": "^2.0.0",
     "iconv-lite": "^0.4.13",
     "koa": "^2.0.0-alpha.3",

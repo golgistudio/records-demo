@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node reportFeesWrapper.js -o ./data/orders.json -r ../server/data/fees.json	
+node reportFeesWrapper.js -o ./data/orders.json -r ../appServer/data/fees.json	

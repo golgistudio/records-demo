@@ -5,7 +5,7 @@
  */
 
 import {dataStoreManager} from '../../shared/model/dataStoreManager'
-import {properties} from '../../server/utils/properties'
+import {properties} from '../utils/properties'
 
 /**
  * @function

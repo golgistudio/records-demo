@@ -9,11 +9,11 @@ var commandLineArgs = require('command-line-args')
 var fs = require('fs')
 var async = require('async')
 
-import {properties} from '../server/utils/properties'
-import {orderManager} from '../server/managers/orderManager'
-import {initializeRecords} from '../server/bootstrap/initializeRecords'
-import {calculateDistributions} from '../server/calculators/calculateDistributions'
-import {calculateFees} from '../server/calculators/calculateFees'
+import {properties} from '../appServer/utils/properties'
+import {orderManager} from '../appServer/managers/orderManager'
+import {initializeRecords} from '../appServer/bootstrap/initializeRecords'
+import {calculateDistributions} from '../appServer/calculators/calculateDistributions'
+import {calculateFees} from '../appServer/calculators/calculateFees'
 import {dataStoreManager} from '../shared/model/dataStoreManager'
 
 /**

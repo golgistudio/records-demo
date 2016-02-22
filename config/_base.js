@@ -15,12 +15,19 @@ const config = {
   dir_dist   : 'dist',
   dir_server : 'src/recordApp/server',
   dir_test   : 'src/recordApp/tests',
+  dir_app_server: 'src/recordApp/appServer',
 
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
   server_host : 'localhost',
   server_port : process.env.PORT || 3000,
+
+  // ----------------------------------
+  // AppServer Configuration
+  // ----------------------------------
+  app_server_host : 'localhost',
+  app_server_port : process.env.APP_PORT || 3001,
 
   // ----------------------------------
   // Compiler Configuration

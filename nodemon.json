@@ -1,4 +1,4 @@
 {
   "verbose": false,
-  "ignore": ["dist", "quality", "tests", "client"]
+  "ignore": ["dist", "quality", "tests", "src/recordApp/client"]
 }

@@ -38,7 +38,7 @@ if (config.env === 'development') {
   app.use(webpackDevMiddleware(compiler, publicPath))
   app.use(webpackHMRMiddleware(compiler))
 
-  // Serve static assets from ~/client/static since Webpack is unaware of
+  // Serve static assets from ~/src/static since Webpack is unaware of
   // these files. This middleware doesn't need to be enabled outside
   // of development since this directory will be copied into ~/dist
   // when the application is compiled.

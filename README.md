@@ -22,8 +22,6 @@ Simple Demo of Records Calculations
   * [Getting Started](#getting-started)
   * [Running the application](#running-the-application)
   * [Design Notes](#design-notes)
-  * [Known Issues](#known-issues)
-  * [Miscellaneous Notes](#notes)
 
 
 ## Overview 
@@ -90,17 +88,3 @@ The web app server runs on port 3000
 cd records-demo
 npm run start
 ```
-
-## Design Notes
-
-
-## Miscellaneous Notes
-References that need to be updated if you move source code
-* bin/server.js
-* build/wepback.recordProperties.js
-* config/_base.js
-* .eslintignore
-* server/main.js
-* server/middleware/webpack-dev.js
-* tests/eslintrc
-

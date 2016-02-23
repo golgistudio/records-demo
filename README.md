@@ -21,7 +21,6 @@ Simple Demo of Records Calculations
   * [Overview](#overview)
   * [Getting Started](#getting-started)
   * [Running the application](#running-the-application)
-  * [Design Notes](#design-notes)
 
 
 ## Overview 

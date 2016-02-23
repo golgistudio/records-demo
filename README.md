@@ -10,7 +10,7 @@ Simple Demo of Records Calculations
 ====================================
 
 * [JSDoc](http://golgistudio.github.io/records-demo/quality/docs/records-demo/0.0.1/)
-* [Coverage Report](http://golgistudio.github.io/records-demo/records-demo/quality/coverage/PhantomJS%202.1.1%20(Linux%200.0.0)/lcov-report/index.html)
+* [Coverage Report](http://golgistudio.github.io/records-demo/quality/coverage/PhantomJS%202.1.1%20(Linux%200.0.0)/lcov-report/index.html)
 
 <img src="https://raw.githubusercontent.com/golgistudio/records-demo/gh-pages/images/recordDemo.png" alt="Records Demo screenshot" width="400">
 
